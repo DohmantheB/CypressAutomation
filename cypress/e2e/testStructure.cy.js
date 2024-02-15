@@ -17,11 +17,11 @@ describe('Context: My First Tests', () => {
         //run before each test case
     })
 
-    it('Opening a web application',()=>{
+    it.skip('Opening a web application',()=>{
         cy.visit('https://practice.cydeo.com/');
     })
-    
-    it('Test 2', ()=> {
+
+    xit('Test 2', ()=> {
         expect(false).to.equal(false);
     })
 
