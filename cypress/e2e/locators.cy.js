@@ -12,6 +12,15 @@ describe('Find or Get Elements by Using Different Locators', () => {
 
         //attribute name and value
         cy.get("[type='text']").clear();  //clear what is typed.
+
+        cy.get("input").each((item,index,list) =>{
+        //assert the length of the list
+        expect(list).to.have.length(2);
+        expect(item).to.have.attr("type");
+
+        });
+
+
     })
 
 })
