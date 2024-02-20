@@ -18,8 +18,21 @@ describe('Find or Get Elements by Using Different Locators', () => {
         //assert the length of the list
         expect(list).to.have.length(2);
         expect(item).to.have.attr("type");
-
         });
+
+        // by attributeName
+        cy.get('[type]');
+
+        //by class name value
+        cy.get('.btn.btn-primary');      // use dot(.) for spaces => I-      btn btn-primary
+                                        //                          II-     .btn.btn-primaty
+
+        //by id
+        cy.get('#wooden_spoo');
+        
+        
+        // want to use text : not xpath in cy, but it still possible wit a different approach
+        cy.get('button').should('contain','Login').click();
 
 
     })
