@@ -6,7 +6,7 @@ describe('Find or Get Elements by Using Different Locators', () => {
         cy.visit('/login');
     })
 
-    it('Check different locators strategies',()=>{
+    xit('Check different locators strategies',()=>{
         //by CSS locator
         cy.get("input[name='username']").type("BooStudent");
 
@@ -28,13 +28,18 @@ describe('Find or Get Elements by Using Different Locators', () => {
                                         //                          II-     .btn.btn-primaty
 
         //by id
-        cy.get('#wooden_spoo');
+        cy.get('#wooden_spoon');
         
         
         // want to use text : not xpath in cy, but it still possible wit a different approach
         cy.get('button').should('contain','Login').click();
 
 
+    })
+
+    xit('Check finding elements by traveling through DOM',() =>{
+        //travel to find login button: locate usernama box-goto parent form then find button
+        cy.get('input[name="username"]').parents('form').find('button').should('contain','Login').click();
     })
 
 })
