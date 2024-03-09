@@ -1,41 +1,39 @@
 /// <reference types="cypress" />
-describe('Context: My First Tests', () => {
-    before(() => {
-        //runs once before all test cases in this describe block
-    })
-    
-    beforeEach(()=>{
-        //run before each test case
-        cy.clearCookies();
-    })
+describe("Context: My First Tests", () => {
+  before(() => {
+    //runs once before all test cases in this describe block
+  });
 
-    after(()=>{
-        //run once after all test cases in this describe block
-    })
+  beforeEach(() => {
+    //run before each test case
+    cy.clearCookies();
+  });
 
-    afterEach(()=>{
-        //run before each test case
-    })
+  after(() => {
+    //run once after all test cases in this describe block
+  });
 
-    it.skip('Opening a web application',()=>{
-        cy.visit('https://practice.cydeo.com/');
-    })
+  afterEach(() => {
+    //run before each test case
+  });
 
-    xit('Test 2', ()=> {
-        expect(false).to.equal(false);
-    })
+  it.skip("Opening a web application", () => {
+    cy.visit("https://practice.cydeo.com/");
+  });
 
-    it('Test 3', () =>{
-        expect(false).not.to.equal(true);
-    })
+  xit("Test 2", () => {
+    expect(false).to.equal(false);
+  });
 
-    it('Test 4', () =>{
-        expect(5).to.equal(5);
-    })
+  it("Test 3", () => {
+    expect(false).not.to.equal(true);
+  });
 
-    it('Test 5', () =>{
-        expect(true).to.equal('5'==5);
-    })
+  it("Test 4", () => {
+    expect(5).to.equal(5);
+  });
 
-
-})
+  it("Test 5", () => {
+    expect(true).to.equal("5" == 5);
+  });
+});
