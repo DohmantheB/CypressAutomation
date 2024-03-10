@@ -25,10 +25,9 @@ describe('Input Forms Tests', () => {
   });
 
   it.skip('Check different radio button actions', () => {
-    
     cy.get('input[type="radio"]')
-    //cy.get('.radio') //locator olarak bu da kullanılabilir.  -->  input[type="radio"]
-    //  .find('[type=radio]')
+      //cy.get('.radio') //locator olarak bu da kullanılabilir.  -->  input[type="radio"]
+      //  .find('[type=radio]')
       .then((radio) => {
         //get all radio buttons, select the 1st one and verify that it is checked
         cy.wrap(radio).first().check().should('be.checked'); //cypress works in a chainable functions structure
@@ -49,6 +48,14 @@ describe('Input Forms Tests', () => {
   });
 
   it('Check different checkbox actions', () => {
-    
-  })
+    // get all check boxes, select JAVA is checked
+    cy.get('[type="checkbox"]').then((checkBoxes) => {
+      cy.wrap(checkBoxes).eq(1).check().should('be.checked');
+      //unchecked java from the page
+      //verify uncheck
+      cy.wrap(checkBoxes).eq(1).uncheck().should('not.be.checked');
+      //verify 3rd one as a value Javascript and check and verify
+      cy.wrap(checkBoxes).eq(2).should('have.value', 'javascript').check().should('be.checked');
+    });
+  });
 });
