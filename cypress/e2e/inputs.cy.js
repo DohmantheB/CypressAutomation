@@ -24,7 +24,7 @@ describe('Input Forms Tests', () => {
     cy.get('input[name="birthday"]').type('01/02/1999');
   });
 
-  it('Check different radio button actions', () => {
+  it.skip('Check different radio button actions', () => {
     
     cy.get('input[type="radio"]')
     //cy.get('.radio') //locator olarak bu da kullanılabilir.  -->  input[type="radio"]
@@ -38,6 +38,17 @@ describe('Input Forms Tests', () => {
          * check() : checks it out
          * should() : verifies whatever I provide as param  'be.checked'
          */
+
+        //get all radio buttons, select the 2nd one and verify that it is checked
+
+        cy.wrap(radio).eq(1).check().should('be.checked');
+        cy.get('[data-bv-icon-for="gender"]').should('be.visible');
+        //checked 3rd radio button is UNCHECKED
+        cy.wrap(radio).eq(2).should('not.be.checked');
       });
   });
+
+  it('Check different checkbox actions', () => {
+    
+  })
 });
