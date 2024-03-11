@@ -4,15 +4,16 @@
   "main": "index.js",
   "scripts": {
     "cypress-cli": "cypress open",
-    "cypress-headed":"cypress run -b chrome",
-    "cypress-headless":"cypress run --headless -b chrome",
+    "cypress-headed": "cypress run -b chrome",
+    "cypress-headless": "cypress run --headless -b chrome",
     "eslint": "eslint cypress",
-    "eslint-fix":"eslint cypress --fix"
+    "eslint-fix": "eslint cypress --fix"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.6.4",
+    "cypress-file-upload": "^5.0.8",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
