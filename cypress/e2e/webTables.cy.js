@@ -89,17 +89,25 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
   });
 
   it('Adding a new record - Better Aproach', () => {
+    // click on add button
     cy.get('#addNewRecordButton').click();
-    cy.fixture('user').then((user) =>{
-      const columnName= Object.keys(user.user1);  //go to fixture folder gets user1 obj keys and stores into columnName Array
-      const userData= Object.values(user.user1);
-      cy.wrap(columnName).each((columnNames,index) => {
+    cy.fixture('user').then((user) => {
+      const columnNames = Object.keys(user.user1); // go to fixture folder gets user1 obj keys and stores into columnName Array
+      const userData = Object.values(user.user1);
+      cy.wrap(columnNames).each((columnName, index) => {
         // cy.log(columnNames);
         // cy.log(userData[index]);
         cy.get(`#${columnName}`).type(`${userData[index]}`);
-        cy.get('#submit').click();
-
-      })
-    } )
+      });
+      cy.get('#submit').click();
+      // assert that new rec is added
+      cy.get('.rt-tbody')
+        .contains('.rt-tr-group', userData[0])
+        .then((row) => {
+          cy.wrap(userData).each((value, index) => {
+            cy.wrap(row).find('.rt-td').eq(index).should('contain', value);
+          });
+        });
+    });
   });
 });
