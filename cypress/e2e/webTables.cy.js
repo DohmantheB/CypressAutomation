@@ -26,8 +26,8 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
         cy.get('#lastName').clear().type('Specter');
         cy.get('#submit').click();
         // still inside the row element
-        cy.wrap(row).find('rt-td').eq(0).should('contain', 'Harvey');
-        cy.wrap(row).find('rt-td').eq(1).should('contain', 'Specter');
+        cy.wrap(row).find('.rt-td').eq(0).should('contain', 'Harvey');
+        cy.wrap(row).find('.rt-td').eq(1).should('contain', 'Specter');
       });
   });
 });
