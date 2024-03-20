@@ -43,7 +43,7 @@ describe('Find or Get Elements by Using Different Locators', () => {
       .click();
   });
 
-  it.only('Check different type of assertions', () => {
+  it('Check different type of assertions', () => {
     // Cypress itself bundles assertions provided by Chai, Sinon and jQuery libs.
     // Should assertion:
     cy.get('#wooden_spoon').should('contain', 'Login').and('have.class', 'btn btn-primary');

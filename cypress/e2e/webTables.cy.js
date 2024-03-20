@@ -11,7 +11,7 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
     cy.visit('/webtables');
   });
 
-  xit('Check finding and editing a record', () => {
+  it('Check finding and editing a record', () => {
     // locate table body
     // then navigate through this element to find Alden,
     // then update info with another person
@@ -23,7 +23,7 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
         cy.wrap(row).find('[title="Edit"]').click();
         // fill in the box with new person
         cy.get('#firstName').clear().type('Harvey');
-        cy.get('#stName').clear().type('Specter');
+        cy.get('#lastName').clear().type('Specter');
         cy.get('#submit').click();
         // still inside the row element
         cy.wrap(row).find('.rt-td').eq(0).should('contain', 'Harvey');
@@ -31,7 +31,7 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
       });
   });
 
-  xit('Check finding and deleting a record', () => {
+  it('Check finding and deleting a record', () => {
     cy.get('.rt-tbody')
       .contains('.rt-tr-group', 'Alden')
       .then((row) => {
@@ -47,11 +47,11 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
     cy.get('.rt-noData').should('contain', 'No rows found').should('be.visible');
   });
 
-  xit('Check search for different age records', () => {
+  it('Check search for different age records', () => {
     // define age group
-    const age = [29, 39, 45, 77];
+    const ages = [29, 39, 45, 77];
     // for each age group perform same test scenario
-    cy.wrap(age).each((age) => {
+    cy.wrap(ages).each((age) => {
       // type age into search box
       cy.get('#searchBox').clear().type(age);
 
@@ -65,7 +65,7 @@ describe('Cypress Web Table Tests', { baseUrl: 'https://demoqa.com' }, () => {
       cy.get('.rt-tbody').contains('.rt-tr-group', age).should('have.length', 1);
     });
   });
-  xit('Check adding a new record - Bad code practice', () => {
+  it('Check adding a new record - Bad code practice', () => {
     cy.get('#addNewRecordButton').click();
     cy.get('#firstName').type('Harvey');
     cy.get('#lastName').type('Specter');
